@@ -4,6 +4,8 @@ import { useAuth } from '../../app/providers/authContext'
 import { getApiError } from '../../shared/api/apiError'
 import ErrorBanner from '../../shared/components/ErrorBanner/ErrorBanner'
 import FormField from '../../shared/components/FormField/FormField'
+import favicon from '../../assets/favicon.svg'
+
 
 export default function LoginPage() {
   const { login, isAuthenticated, user } = useAuth()
@@ -29,7 +31,7 @@ export default function LoginPage() {
 
   return <div className="auth-card"><div className="brand brand--auth">
     <span className="brand-mark">
-  <img src="/favicon.svg" alt="PeoplePay360" />
+  <img src={favicon} alt="PeoplePay360" />
 </span>
 <div><strong>PeoplePay360</strong><small>People and payroll, connected</small></div></div><div className="auth-heading"><h1>Welcome back</h1><p>Sign in to continue to your workspace.</p></div><ErrorBanner message={error} /><form onSubmit={submit} className="stack">
     <FormField label="Email" htmlFor="email"><input id="email" type="email" autoComplete="email" required value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="you@company.com" /></FormField>
